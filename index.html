@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+    
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 构建工具 -->
+    <!-- <script type="module" src="/src/main.js"></script> -->
+
+    <!-- global umd -->
+    <script src="https://unpkg.com/vue@3.5.21/dist/vue.global.js"></script>
+    <script type="template1">
+      console.log('Vue', Vue)
+      const Test1 = {
+          template: `<p>{{ param1 }}</p>`,
+          data() {
+              return {
+                  param1: 'param1'
+              }
+          },
+          methods: {
+              method1() {
+                  console.log('this is method1')
+              }
+          }
+      }
+
+      const vm = Vue.createApp(Test1)
+      vm.mount('#app')
+    </script>
+    <!--  global esm --> 
+    <script type="module">
+      import { createApp }from "https://unpkg.com/vue@3.5.21/dist/vue.esm-browser.js"
+      const vm2 = createApp({
+          template: `<p>{{ param1 }}</p>`,
+          data() {
+              return {
+                  param1: 'param1'
+              }
+          },
+          methods: {
+              method1() {
+                  console.log('this is method1')
+              }
+          }
+      })
+      vm2.mount('#app')
+    </script>
+
+
+
+
+  </body>
+</html>
